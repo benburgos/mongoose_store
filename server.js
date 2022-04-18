@@ -20,13 +20,25 @@ app.get('/store', (req, res) => {
     res.send(`You're at the main page!`)
     console.log('--Index page accessed--')
 });
+
 // New Route
 app.get('/store/new', (req, res) => {
     res.send(`You're at the page to create a new item!`)
     console.log('--New item form page accessed--')
 });
+
 // Create Route
+app.post('/store', (req, res) => {
+    res.send(`You sent in a new item!`)
+    console.log(`--Create route was hit from the NEW page--`)
+});
+
 // Show Route
+app.get('/store/:id', (req, res) => {
+    res.send(`You're look at item details for ${req.params.id} here!`)
+    console.log(`--Show route was accessed!`)
+});
+
 // Edit Route
 // Update Route
 // Delete Route
