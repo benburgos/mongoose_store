@@ -40,6 +40,10 @@ app.get('/store/:id', (req, res) => {
 });
 
 // Edit Route
+app.get('/store/:id/edit', (req, res) => {
+    res.send(`You're editing item ${req.params.id} here!`)
+    console.log(`--Edit route was hit!--`);
+})
 // Update Route
 // Delete Route
 
