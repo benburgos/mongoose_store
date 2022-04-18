@@ -39,8 +39,11 @@ productRouter.post('/', (req, res) => {
 
 // Show Route
 productRouter.get('/:id', (req, res) => {
-    res.send(`You're look at item details for ${req.params.id} here!`)
-    console.log(`--Show route was accessed!`)
+    Product.findById(req.params.id, (err, foundProduct) => {
+        res.render('show.ejs', {
+            product: foundProduct
+        });
+    });
 });
 
 // Edit Route

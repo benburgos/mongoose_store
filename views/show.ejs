@@ -4,6 +4,24 @@
     <%- include('partials/head.ejs') %> 
 </head>
 <body>
-    <h1>Show Page</h1>
+<div class="container">
+    <section class="hero is-small is-primary">
+        <div class="hero-body has-text-centered">
+            <p class="title">
+                <%= product.name %> 
+            </p>
+        </div>
+    </section>
+    <div class="columns has-text-centered">
+        <div class="column">
+            <ul>
+                <li><img src="<%= product.img %>"></li>
+                <li><%= product.description %></li>
+                <li>$<%= product.price %></li>
+                <li>Quantity: <%= product.qty %></li>
+            </ul>
+        </div>
+    </div>
+</div>
 </body>
 </html>
