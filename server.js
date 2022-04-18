@@ -18,8 +18,13 @@ app.use(express.static('public'));
 // Index Route
 app.get('/store', (req, res) => {
     res.send(`You're at the main page!`)
+    console.log('--Index page accessed--')
 });
 // New Route
+app.get('/store/new', (req, res) => {
+    res.send(`You're at the page to create a new item!`)
+    console.log('--New item form page accessed--')
+});
 // Create Route
 // Show Route
 // Edit Route
