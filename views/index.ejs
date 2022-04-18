@@ -11,6 +11,12 @@
     <ul>
     <% for( let index = 0; index < products.length; index++ ) { %>
         <li><%= products[index].name %></li>
+            <ul>
+                <li><a href="<%= products[index].img %>">Image</a></li>
+                <li><%= products[index].description %></li>
+                <li>$<%= products[index].price %></li>
+                <li>Quantity: <%= products[index].qty %></li>
+            </ul>
     <% } %>
     </ul>
 </body>
