@@ -1,4 +1,5 @@
 const express = require('express');
+const Book = require('../../booklist/models/book');
 const Product = require('../models/products');
 const productSeedData = require('../models/productSeed');
 const productRouter = express.Router();
@@ -6,8 +7,12 @@ const productRouter = express.Router();
 // Routes /////////////////////////////////////////////////
 // Index Route
 productRouter.get('/', (req, res) => {
-    res.send(`You're at the main page!`)
     console.log('--Index page accessed--')
+    Product.find({}, (err, allProducts) => {
+        res.render('index.ejs', {
+            products: allProducts
+        })
+    })
 });
 
 // Seed Route
