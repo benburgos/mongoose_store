@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <%- include('partials/head.ejs') %> 
 </head>
 <body>
-    <h1>Store Page</h1>
-    <ul>
+<div class="container">
+    <section class="hero is-small is-primary">
+        <div class="hero-body has-text-centered">
+            <p class="title">
+                Mongoose Store
+            </p>
+            <p class="subtitle">
+                The INDEX Page
+            </p>
+        </div>
+    </section>
+    <div class="columns is-mobile">
     <% for( let index = 0; index < products.length; index++ ) { %>
-        <li><%= products[index].name %></li>
+        <div class="column has-text-centered">
             <ul>
+                <li><%= products[index].name %></li>
                 <li><a href="<%= products[index].img %>">Image</a></li>
                 <li><%= products[index].description %></li>
                 <li>$<%= products[index].price %></li>
                 <li>Quantity: <%= products[index].qty %></li>
             </ul>
+        </div>
     <% } %>
-    </ul>
+    </div>
+</div>
 </body>
 </html>
