@@ -23,9 +23,9 @@
                 <a class="button is-light" href="/store/<%= product._id %>/edit">
                     Edit Item
                 </a>
-                <a class="button is-light" href="/store/<%= product._id %>/edit">
-                    Delete Item
-                </a>
+                <form action="/store/<%= product._id %>?_method=DELETE" method="post">
+                    <button type="submit" class="button is-light">Delete Item</button>
+                </form>
               </div>
             </div>
           </div>

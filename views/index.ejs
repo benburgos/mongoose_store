@@ -6,7 +6,7 @@
 <body>
 <div class="container">
     
-    <section class="hero is-small is-primary">
+    <section class="hero is-small is-info">
         <div class="hero-body">
           <p class="title">
             All Products
@@ -28,9 +28,9 @@
 
       <br>
 
-    <div class="columns is-mobile">
+    <div class="columns is-multiline">
     <% for( let index = 0; index < products.length; index++ ) { %>
-        <div class="column has-text-centered">
+        <div class="column has-text-centered is-one-quarter">
             <ul>
                 <li>
                     <a href="/store/<%= products[index]._id %>">

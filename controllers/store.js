@@ -30,9 +30,10 @@ productRouter.get('/new', (req, res) => {
 });
 
 // Delete Route
-productRouter.delete('/store/:id', (req, res) => {
-    res.send(`You deleted item #${req.params.id}!`)
-    console.log(`--Delete route was hit!--`)
+productRouter.delete('/:id', (req, res) => {
+    Product.findByIdAndDelete(req.params.id, (err, deletedProducts) => {
+        res.redirect('/store');
+    });
 });
 
 // Update Route
