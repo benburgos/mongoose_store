@@ -1,5 +1,4 @@
 const express = require('express');
-const Book = require('../../booklist/models/book');
 const Product = require('../models/products');
 const productSeedData = require('../models/productSeed');
 const productRouter = express.Router();
