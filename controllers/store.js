@@ -7,7 +7,6 @@ const productRouter = express.Router();
 // Routes /////////////////////////////////////////////////
 // Index Route
 productRouter.get('/', (req, res) => {
-    console.log('--Index page accessed--')
     Product.find({}, (err, allProducts) => {
         res.render('index.ejs', {
             products: allProducts
@@ -27,14 +26,14 @@ productRouter.get('/seed', (req, res) => {
 
 // New Route
 productRouter.get('/new', (req, res) => {
-    res.send(`You're at the page to create a new item!`)
-    console.log('--New item form page accessed--')
+    res.render('new.ejs');
 });
 
 // Create Route
 productRouter.post('/', (req, res) => {
-    res.send(`You sent in a new item!`)
-    console.log(`--Create route was hit from the NEW page--`)
+    Product.create(req.body, (err, newProduct) => {
+        res.redirect('/store');
+    });
 });
 
 // Show Route
