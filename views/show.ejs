@@ -6,19 +6,47 @@
 <body>
 <div class="container">
     <section class="hero is-small is-primary">
-        <div class="hero-body has-text-centered">
-            <p class="title">
-                <%= product.name %> 
-            </p>
+        <div class="hero-body">
+          <p class="title">
+            <%= product.name %> 
+          </p>
+          <p class="subtitle">
+            Mongoose Store
+          </p>
         </div>
-    </section>
+        <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                <a class="button is-primary" href="/store">
+                    <strong>Home</strong>
+                  </a>
+                <a class="button is-light" href="/store/<%= product._id %>/edit">
+                    Edit Item
+                </a>
+                <a class="button is-light" href="/store/<%= product._id %>/edit">
+                    Delete Item
+                </a>
+              </div>
+            </div>
+          </div>
+      </section>
+
+      <br>
+    
     <div class="columns has-text-centered">
         <div class="column">
             <ul>
                 <li><img src="<%= product.img %>"></li>
+                <li><strong>Description:</strong></li>
                 <li><%= product.description %></li>
-                <li>$<%= product.price %></li>
-                <li>Quantity: <%= product.qty %></li>
+                <li>
+                    <strong>Price:</strong> 
+                    $<%= product.price %>
+                </li>
+                <li>
+                    <strong>Quantity:</strong>
+                    <%= product.qty %>
+                </li>
             </ul>
         </div>
     </div>

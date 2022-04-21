@@ -5,22 +5,39 @@
 </head>
 <body>
 <div class="container">
+    
     <section class="hero is-small is-primary">
-        <div class="hero-body has-text-centered">
-            <p class="title">
-                Mongoose Store
-            </p>
-            <p class="subtitle">
-                The INDEX Page
-            </p>
+        <div class="hero-body">
+          <p class="title">
+            All Products
+          </p>
+          <p class="subtitle">
+            Mongoose Store
+          </p>
         </div>
-    </section>
+        <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                <a class="button is-light" href="/store/new">
+                  Add New Item
+                </a>
+              </div>
+            </div>
+          </div>
+      </section>
+
+      <br>
+
     <div class="columns is-mobile">
     <% for( let index = 0; index < products.length; index++ ) { %>
         <div class="column has-text-centered">
             <ul>
-                <li><a href="/store/<%= products[index]._id %>"><%= products[index].name %></a></li>
-                <li><a href="<%= products[index].img %>">Image</a></li>
+                <li>
+                    <a href="/store/<%= products[index]._id %>">
+                        <img src="<%= products[index].img %>" alt="<%= products[index].name %>">
+                    </a>
+                </li>
+                <li><%= products[index].name %></li>
                 <li><%= products[index].description %></li>
                 <li>$<%= products[index].price %></li>
                 <li>Quantity: <%= products[index].qty %></li>
