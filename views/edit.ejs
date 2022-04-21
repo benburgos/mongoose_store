@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head.ejs') %> 
+</head>
+<body>
+<div class="container">
+    <section class="hero is-small is-primary">
+        <div class="hero-body">
+          <p class="title">
+            <%= product.name %> 
+          </p>
+          <p class="subtitle">
+            Mongoose Store
+          </p>
+        </div>
+        <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                <a class="button is-primary" href="/store">
+                    <strong>Home</strong>
+                  </a>
+                <a class="button is-light" href="/store/<%= product._id %>/edit">
+                    Delete Item
+                </a>
+              </div>
+            </div>
+          </div>
+      </section>
+
+      <br>
+    
+    <div class="columns has-text-centered">
+        <div class="column">
+            <ul>
+                <form action="/store/<%= product._id %>?_method=PUT" method="post" class="the-form">
+                    <li>Name:</li>
+                    <li><input type="text" name="name" value="<%= product.name %>"></li>
+                    <li>Image URL:</li> 
+                    <li><input type="url" name="img" value="<%= product.img %>"></li>
+                    <li>Price:</li>
+                    <li><input type="number" name="price" value="<%= product.price %>"></li>
+                    <li>Quantity:</li> 
+                    <li><input type="number" name="qty" value="<%= product.qty %>"></li>
+                    <li>Description:</li>
+                    <li><textarea name="description" id="" cols="50" rows="10"><%= product.description %></textarea></li>
+                    <div class="buttons is-normal is-centered">
+                        <button type="submit" class="button">Submit Edit</button>
+                    </div>
+                </form>
+            </ul>
+        </div>
+    </div>
+    
+
+</div>
+</body>
+</html>

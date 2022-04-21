@@ -29,10 +29,32 @@ productRouter.get('/new', (req, res) => {
     res.render('new.ejs');
 });
 
+// Delete Route
+productRouter.delete('/store/:id', (req, res) => {
+    res.send(`You deleted item #${req.params.id}!`)
+    console.log(`--Delete route was hit!--`)
+});
+
+// Update Route
+productRouter.put('/:id', (req, res) => {
+    Product.findByIdAndUpdate(req.params.id, req.body, (err, updatedBook) => {
+        res.redirect(`/store/${req.params.id}`);
+    });
+});
+
 // Create Route
 productRouter.post('/', (req, res) => {
     Product.create(req.body, (err, newProduct) => {
         res.redirect('/store');
+    });
+});
+
+// Edit Route
+productRouter.get('/:id/edit', (req, res) => {
+    Product.findById(req.params.id, (err, foundProduct) => {
+        res.render('edit.ejs', {
+            product: foundProduct
+        });
     });
 });
 
@@ -45,23 +67,8 @@ productRouter.get('/:id', (req, res) => {
     });
 });
 
-// Edit Route
-productRouter.get('/:id/edit', (req, res) => {
-    res.send(`You're editing item ${req.params.id} here!`)
-    console.log(`--Edit route was hit!--`);
-});
 
-// Update Route
-productRouter.put('/:id', (req, res) => {
-    res.send(`You sent in an update request for ${req.params.id}!`)
-    console.log(`--Update route was hit from the EDIT page--`)
-});
 
-// Delete Route
-productRouter.delete('/store/:id', (req, res) => {
-    res.send(`You deleted item #${req.params.id}!`)
-    console.log(`--Delete route was hit!--`)
-})
 ///////////////////////////////////////////////////////////
 
 module.exports = productRouter;
