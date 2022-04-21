@@ -45,17 +45,34 @@
                 </li>
                 <li>
                     <strong>Quantity:</strong>
-                    <%= product.qty %>
+                    <span class="quantity"><%= product.qty %></span>
                 </li>
             </ul>
         </div>
     </div>
-    
-    <div class="buttons are-medium is-centered">
-        <button class="button">Buy Me!</button>
-    </div>
-    
+
+    <% if (product.qty <= 0) { %>
+      <div class="buttons are-medium is-centered">
+        <button class="button" id="buyButton" disabled>Out of Stock</button>
+      </div>
+      <% } else { %>
+        <div class="buttons are-medium is-centered">
+          <button class="button" id="buyButton" onclick="decrement()">Buy Me!</button>
+        </div>
+      <% } %> 
 
 </div>
+<script>
+decrement = () => {
+  let qty = parseInt(document.querySelector('.quantity').textContent);
+  let buyButton = document.querySelector('#buyButton')
+  let newQty = --qty;
+  document.querySelector('.quantity').textContent = newQty;
+  if (qty === 0) {
+    buyButton.textContent = 'Out of Stock'
+    buyButton.disabled = true;
+  }
+}
+</script>
 </body>
 </html>
